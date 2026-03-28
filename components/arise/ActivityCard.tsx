@@ -49,7 +49,7 @@ export function ActivityCard({
 
   return (
     <div
-      className={`rounded-lg border transition-all shadow-sm ${
+      className={`rounded-lg border transition-all shadow-[0_1px_3px_rgba(0,0,0,0.12)] ${
         isComplete ? 'opacity-60 bg-gray-50' : 'bg-white'
       }`}
       style={isOpen ? { borderColor: colors.base, borderWidth: '1.5px' } : { borderColor: 'transparent' }}

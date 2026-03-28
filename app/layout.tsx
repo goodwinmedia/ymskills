@@ -26,7 +26,7 @@ export default function RootLayout({
       <head>
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`} style={{ backgroundColor: '#f0eee6' }}>
+      <body className={`${inter.variable} font-sans antialiased`} style={{ backgroundColor: '#efefe7' }}>
         <Topbar />
         <main>{children}</main>
       </body>
