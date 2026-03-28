@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   Quorum,
   Dimension,
@@ -37,8 +37,18 @@ export function AddActivityForm({ quorum, dimension, onClose, onAdded }: AddActi
   const [description, setDescription] = useState('')
   const [type, setType] = useState<ActivityType>('group')
   const [tags, setTags] = useState<Tag[]>([])
+  const titleRef = useRef<HTMLInputElement>(null)
 
   const colors = DIMENSION_COLORS[dimension]
+
+  useEffect(() => {
+    titleRef.current?.focus()
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [onClose])
 
   function toggleTag(tag: Tag) {
     setTags((prev) => (prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]))
@@ -62,11 +72,11 @@ export function AddActivityForm({ quorum, dimension, onClose, onAdded }: AddActi
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="add-activity-title">
       <div className="fixed inset-0 bg-black/50" onClick={onClose} />
       <div className="relative z-50 w-full max-w-lg bg-white rounded-t-2xl sm:rounded-2xl p-5 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-serif font-semibold text-arise-navy">Add Activity</h2>
+          <h2 id="add-activity-title" className="text-lg font-serif font-semibold text-arise-navy">Add Activity</h2>
           <button
             onClick={onClose}
             className="min-h-[44px] min-w-[44px] flex items-center justify-center text-gray-400 hover:text-gray-600"
@@ -93,6 +103,7 @@ export function AddActivityForm({ quorum, dimension, onClose, onAdded }: AddActi
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
             <input
+              ref={titleRef}
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}

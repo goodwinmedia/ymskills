@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import {
+  Activity,
   Quorum,
   Dimension,
   QUORUM_LABELS,
@@ -9,6 +10,7 @@ import {
   DIMENSION_COLORS,
 } from '@/lib/data/types'
 import { activities } from '@/lib/data/activities'
+import { getCustomActivities } from '@/lib/custom-activities'
 import { ProgressStore } from '@/lib/progress'
 
 const quorums: Quorum[] = ['deacons', 'teachers', 'priests']
@@ -20,9 +22,11 @@ interface ProgressGridProps {
 
 export function ProgressGrid({ progress }: ProgressGridProps) {
   const router = useRouter()
+  const custom = getCustomActivities()
+  const allActivities: Activity[] = [...activities, ...custom]
 
   function getStats(q: Quorum, d: Dimension) {
-    const acts = activities.filter((a) => a.quorum === q && a.dimension === d)
+    const acts = allActivities.filter((a) => a.quorum === q && a.dimension === d)
     const done = acts.filter((a) => !!progress[a.id]).length
     return { done, total: acts.length }
   }
@@ -60,6 +64,7 @@ export function ProgressGrid({ progress }: ProgressGridProps) {
                       onClick={() =>
                         router.push(`/activities?q=${q}&d=${d}`)
                       }
+                      aria-label={`${QUORUM_LABELS[q].label} ${DIMENSION_LABELS[d]}: ${done} of ${total} completed`}
                       className="w-full min-h-[44px] rounded-lg p-2 transition-colors hover:opacity-80"
                       style={{ backgroundColor: colors.light }}
                     >

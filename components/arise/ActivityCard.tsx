@@ -49,13 +49,14 @@ export function ActivityCard({
 
   return (
     <div
-      className={`rounded-lg border transition-all ${
+      className={`rounded-lg border transition-all shadow-sm ${
         isComplete ? 'opacity-60 bg-gray-50' : 'bg-white'
       }`}
-      style={isOpen ? { borderColor: colors.base, borderWidth: '1.5px' } : {}}
+      style={isOpen ? { borderColor: colors.base, borderWidth: '1.5px' } : { borderColor: 'transparent' }}
     >
       <button
         onClick={onToggle}
+        aria-expanded={isOpen}
         className="w-full min-h-[44px] p-4 text-left flex items-start gap-3"
       >
         <div className="flex-1 min-w-0">
@@ -117,8 +118,8 @@ export function ActivityCard({
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
                   placeholder="Add a note, e.g. Oct 15 activity night…"
-                  className="w-full px-3 py-2 text-sm border rounded-md resize-none h-16 focus:outline-none focus:ring-2 focus:ring-offset-1"
-                  style={{ focusRingColor: colors.base } as React.CSSProperties}
+                  className="w-full px-3 py-2 border rounded-md resize-none h-16 focus:outline-none focus:ring-2 focus:ring-offset-1"
+                  style={{ '--tw-ring-color': colors.base } as React.CSSProperties}
                 />
                 <button
                   onClick={() => {

@@ -92,14 +92,14 @@ export function ActivityBrowser() {
       <QuorumTabs
         active={quorum}
         onChange={(q) => {
-          updateParams({ q })
+          updateParams({ q, type: 'all', tag: 'all' })
           setOpenId(null)
         }}
       />
       <DimensionTabs
         active={dimension}
         onChange={(d) => {
-          updateParams({ d })
+          updateParams({ d, type: 'all', tag: 'all' })
           setOpenId(null)
         }}
       />
@@ -140,7 +140,7 @@ export function ActivityBrowser() {
       {/* Add Activity FAB */}
       <button
         onClick={() => setShowAddForm(true)}
-        className="fixed bottom-16 right-4 z-10 w-12 h-12 rounded-full text-white shadow-lg flex items-center justify-center transition-transform hover:scale-105 active:scale-95"
+        className="fixed bottom-[72px] right-4 z-10 w-12 h-12 rounded-full text-white shadow-lg flex items-center justify-center transition-transform hover:scale-105 active:scale-95"
         style={{ backgroundColor: colors.base }}
         aria-label="Add custom activity"
       >

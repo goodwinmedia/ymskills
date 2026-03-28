@@ -11,7 +11,7 @@ interface DimensionTabsProps {
 
 export function DimensionTabs({ active, onChange }: DimensionTabsProps) {
   return (
-    <div className="flex gap-1.5 px-3 py-2 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
+    <div className="flex gap-1.5 px-3 py-2 overflow-x-auto no-scrollbar">
       {dimensions.map((d) => {
         const isActive = d === active
         const colors = DIMENSION_COLORS[d]
