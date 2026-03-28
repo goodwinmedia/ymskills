@@ -15,6 +15,11 @@ export function Topbar() {
 
   return (
     <header className="bg-arise-navy text-white">
+      <div className="bg-arise-navy border-b border-white/10 px-3 py-1 text-center">
+        <span className="text-[9px] uppercase tracking-[0.15em] text-white/50 font-medium">
+          Young Men&apos;s Development Framework
+        </span>
+      </div>
       <div className="flex items-center justify-between px-3 py-2">
         <Link href="/activities" className="flex items-center gap-2">
           <AriseMark size={28} />
