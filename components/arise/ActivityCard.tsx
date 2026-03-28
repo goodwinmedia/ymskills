@@ -15,16 +15,10 @@ interface ActivityCardProps {
   onDelete?: () => void
 }
 
-const TYPE_STYLES: Record<string, { bg: string; text: string; label: string }> = {
-  group: { bg: 'bg-blue-100', text: 'text-blue-700', label: 'Group activity' },
-  personal: { bg: 'bg-green-100', text: 'text-green-700', label: 'Personal challenge' },
-  both: { bg: 'bg-amber-100', text: 'text-amber-700', label: 'Both' },
-}
-
-const TAG_STYLES: Record<string, { bg: string; text: string }> = {
-  mission: { bg: 'bg-blue-50', text: 'text-blue-600' },
-  father: { bg: 'bg-amber-50', text: 'text-amber-600' },
-  career: { bg: 'bg-green-50', text: 'text-green-600' },
+const TYPE_STYLES: Record<string, { label: string }> = {
+  group: { label: 'Group' },
+  personal: { label: 'Personal' },
+  both: { label: 'Group + Personal' },
 }
 
 function formatDate(iso: string): string {
@@ -49,68 +43,73 @@ export function ActivityCard({
 
   return (
     <div
-      className={`rounded-lg border transition-all shadow-[0_1px_3px_rgba(0,0,0,0.12)] ${
-        isComplete ? 'opacity-60 bg-gray-50' : 'bg-white'
+      className={`rounded-xl transition-all ${
+        isComplete ? 'opacity-50' : 'bg-white shadow-[0_1px_4px_rgba(0,0,0,0.08)]'
       }`}
-      style={isOpen ? { borderColor: colors.base, borderWidth: '1.5px' } : { borderColor: 'transparent' }}
+      style={
+        isOpen
+          ? { boxShadow: `0 0 0 1.5px ${colors.base}, 0 2px 8px rgba(0,0,0,0.08)` }
+          : isComplete
+          ? { backgroundColor: '#f7f7f5' }
+          : undefined
+      }
     >
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="w-full min-h-[44px] p-4 text-left flex items-start gap-3"
+        className="w-full min-h-[44px] px-4 py-3 text-left flex items-start gap-3"
       >
         <div className="flex-1 min-w-0">
-          <div className="flex flex-wrap items-center gap-2 mb-1">
-            <span
-              className={`inline-block px-2 py-0.5 rounded text-[11px] font-medium ${typeStyle.bg} ${typeStyle.text}`}
-            >
+          <div className="text-[15px] font-semibold text-gray-900 leading-snug">{activity.title}</div>
+          <div className="text-[13px] text-gray-400 mt-0.5 leading-snug">{activity.principle}</div>
+          <div className="flex flex-wrap items-center gap-1.5 mt-2">
+            <span className="inline-block px-2 py-px rounded-full text-[10px] font-medium text-gray-500 bg-gray-100">
               {typeStyle.label}
             </span>
             {isCustom && (
-              <span className="inline-block px-2 py-0.5 rounded text-[10px] font-medium bg-purple-100 text-purple-600">
+              <span className="inline-block px-2 py-px rounded-full text-[10px] font-medium text-purple-500 bg-purple-50">
                 Custom
               </span>
             )}
             {activity.tags.map((tag) => (
               <span
                 key={tag}
-                className={`inline-block px-2 py-0.5 rounded text-[10px] font-medium ${TAG_STYLES[tag].bg} ${TAG_STYLES[tag].text}`}
+                className="inline-block px-2 py-px rounded-full text-[10px] font-medium text-gray-400 bg-gray-50"
               >
                 {TAG_LABELS[tag]}
               </span>
             ))}
+            {isComplete && (
+              <span className="inline-flex items-center gap-1 text-[10px] text-green-600 font-medium">
+                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                {formatDate(completionEntry.completedAt)}
+              </span>
+            )}
           </div>
-          <div className="text-[15px] font-medium text-gray-900">{activity.title}</div>
-          <div className="text-[13px] italic text-gray-500 mt-0.5">{activity.principle}</div>
-          {isComplete && (
-            <div className="flex items-center gap-1.5 mt-1.5 text-[12px] text-gray-400">
-              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fillRule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Done {formatDate(completionEntry.completedAt)}
-            </div>
-          )}
         </div>
         <svg
-          className={`w-5 h-5 text-gray-400 mt-1 transition-transform flex-shrink-0 ${
+          className={`w-4 h-4 text-gray-300 mt-0.5 transition-transform flex-shrink-0 ${
             isOpen ? 'rotate-90' : ''
           }`}
           fill="none"
           stroke="currentColor"
+          strokeWidth={2.5}
           viewBox="0 0 24 24"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
 
       {isOpen && (
         <div className="px-4 pb-4 pt-0">
           <div className="border-t border-gray-100 pt-3">
-            <p className="text-[14px] leading-[1.65] text-gray-700">{activity.description}</p>
+            <p className="text-[14px] leading-relaxed text-gray-600">{activity.description}</p>
 
             {!isComplete ? (
               <div className="mt-4 space-y-3">
@@ -118,7 +117,7 @@ export function ActivityCard({
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
                   placeholder="Add a note, e.g. Oct 15 activity night…"
-                  className="w-full px-3 py-2 border rounded-md resize-none h-16 focus:outline-none focus:ring-2 focus:ring-offset-1"
+                  className="w-full px-3 py-2 border border-gray-200 rounded-lg resize-none h-16 focus:outline-none focus:ring-2 focus:ring-offset-1"
                   style={{ '--tw-ring-color': colors.base } as React.CSSProperties}
                 />
                 <button
@@ -126,7 +125,7 @@ export function ActivityCard({
                     onMarkComplete(note.trim() || undefined)
                     setNote('')
                   }}
-                  className="min-h-[44px] px-5 py-2.5 rounded-md text-sm font-medium text-white transition-colors"
+                  className="min-h-[44px] w-full px-5 py-2.5 rounded-lg text-sm font-medium text-white transition-colors"
                   style={{ backgroundColor: colors.base }}
                 >
                   Mark complete

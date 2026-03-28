@@ -89,7 +89,7 @@ export function ActivityBrowser() {
 
   return (
     <div className="pb-20">
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
         <QuorumTabs
           active={quorum}
           onChange={(q) => {
@@ -111,7 +111,7 @@ export function ActivityBrowser() {
           onTagChange={(t) => updateParams({ tag: t, type: 'all' })}
         />
       </div>
-      <div className="px-4 py-3 space-y-3">
+      <div className="px-4 py-3 space-y-2.5">
         {filtered.length === 0 ? (
           <p className="text-sm text-gray-400 text-center py-8">
             No activities match this filter.
