@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { Quorum, Dimension, ActivityType, Tag } from '@/lib/data/types'
+import { Quorum, Dimension, ActivityType, Tag, DIMENSION_COLORS } from '@/lib/data/types'
 import { getByQuorumAndDimension } from '@/lib/data/activities'
 import {
   getProgress,
@@ -10,11 +10,13 @@ import {
   markIncomplete,
   ProgressStore,
 } from '@/lib/progress'
+import { getCustomActivities, deleteCustomActivity, isCustomActivity } from '@/lib/custom-activities'
 import { QuorumTabs } from './QuorumTabs'
 import { DimensionTabs } from './DimensionTabs'
 import { FilterRow } from './FilterRow'
 import { ActivityCard } from './ActivityCard'
 import { ProgressBar } from './ProgressBar'
+import { AddActivityForm } from './AddActivityForm'
 
 export function ActivityBrowser() {
   const router = useRouter()
@@ -27,6 +29,8 @@ export function ActivityBrowser() {
 
   const [openId, setOpenId] = useState<string | null>(null)
   const [progress, setProgress] = useState<ProgressStore>({})
+  const [showAddForm, setShowAddForm] = useState(false)
+  const [customVersion, setCustomVersion] = useState(0)
 
   useEffect(() => {
     setProgress(getProgress())
@@ -43,7 +47,13 @@ export function ActivityBrowser() {
     [router, searchParams]
   )
 
-  const allActivities = getByQuorumAndDimension(quorum, dimension)
+  const builtInActivities = getByQuorumAndDimension(quorum, dimension)
+  const customActivities = getCustomActivities().filter(
+    (a) => a.quorum === quorum && a.dimension === dimension
+  )
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const _ = customVersion // trigger re-render when custom activities change
+  const allActivities = [...builtInActivities, ...customActivities]
 
   let filtered = allActivities
   if (typeFilter !== 'all') {
@@ -66,6 +76,16 @@ export function ActivityBrowser() {
     markIncomplete(id)
     setProgress(getProgress())
   }
+
+  function handleDeleteCustom(id: string) {
+    deleteCustomActivity(id)
+    markIncomplete(id)
+    setProgress(getProgress())
+    setCustomVersion((v) => v + 1)
+    setOpenId(null)
+  }
+
+  const colors = DIMENSION_COLORS[dimension]
 
   return (
     <div className="pb-20">
@@ -106,16 +126,44 @@ export function ActivityBrowser() {
               completionEntry={progress[activity.id] ?? null}
               onMarkComplete={(note) => handleMarkComplete(activity.id, note)}
               onMarkIncomplete={() => handleMarkIncomplete(activity.id)}
+              isCustom={isCustomActivity(activity.id)}
+              onDelete={
+                isCustomActivity(activity.id)
+                  ? () => handleDeleteCustom(activity.id)
+                  : undefined
+              }
             />
           ))
         )}
       </div>
+
+      {/* Add Activity FAB */}
+      <button
+        onClick={() => setShowAddForm(true)}
+        className="fixed bottom-16 right-4 z-10 w-12 h-12 rounded-full text-white shadow-lg flex items-center justify-center transition-transform hover:scale-105 active:scale-95"
+        style={{ backgroundColor: colors.base }}
+        aria-label="Add custom activity"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+        </svg>
+      </button>
+
       <ProgressBar
         completed={completedCount}
         total={allActivities.length}
         quorum={quorum}
         dimension={dimension}
       />
+
+      {showAddForm && (
+        <AddActivityForm
+          quorum={quorum}
+          dimension={dimension}
+          onClose={() => setShowAddForm(false)}
+          onAdded={() => setCustomVersion((v) => v + 1)}
+        />
+      )}
     </div>
   )
 }

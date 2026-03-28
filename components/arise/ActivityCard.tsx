@@ -11,6 +11,8 @@ interface ActivityCardProps {
   completionEntry: CompletionEntry | null
   onMarkComplete: (note?: string) => void
   onMarkIncomplete: () => void
+  isCustom?: boolean
+  onDelete?: () => void
 }
 
 const TYPE_STYLES: Record<string, { bg: string; text: string; label: string }> = {
@@ -37,6 +39,8 @@ export function ActivityCard({
   completionEntry,
   onMarkComplete,
   onMarkIncomplete,
+  isCustom,
+  onDelete,
 }: ActivityCardProps) {
   const [note, setNote] = useState('')
   const isComplete = !!completionEntry
@@ -61,6 +65,11 @@ export function ActivityCard({
             >
               {typeStyle.label}
             </span>
+            {isCustom && (
+              <span className="inline-block px-2 py-0.5 rounded text-[10px] font-medium bg-purple-100 text-purple-600">
+                Custom
+              </span>
+            )}
             {activity.tags.map((tag) => (
               <span
                 key={tag}
@@ -134,6 +143,20 @@ export function ActivityCard({
                   className="text-sm text-gray-400 underline hover:text-gray-600 min-h-[44px]"
                 >
                   Mark incomplete
+                </button>
+              </div>
+            )}
+
+            {isCustom && onDelete && (
+              <div className="mt-3 pt-3 border-t border-gray-100">
+                <button
+                  onClick={onDelete}
+                  className="text-sm text-red-400 hover:text-red-600 min-h-[44px] flex items-center gap-1.5"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                  Delete custom activity
                 </button>
               </div>
             )}
