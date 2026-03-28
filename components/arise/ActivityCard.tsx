@@ -15,6 +15,12 @@ interface ActivityCardProps {
   onDelete?: () => void
 }
 
+const TAG_COLORS: Record<string, string> = {
+  mission: 'text-blue-600 bg-blue-50',
+  father: 'text-amber-600 bg-amber-50',
+  career: 'text-emerald-600 bg-emerald-50',
+}
+
 const TYPE_STYLES: Record<string, { label: string }> = {
   group: { label: 'Group' },
   personal: { label: 'Personal' },
@@ -63,18 +69,21 @@ export function ActivityCard({
           <div className="text-[15px] font-semibold text-gray-900 leading-snug">{activity.title}</div>
           <div className="text-[13px] text-gray-400 mt-0.5 leading-snug">{activity.principle}</div>
           <div className="flex flex-wrap items-center gap-1.5 mt-2">
-            <span className="inline-block px-2 py-px rounded-full text-[10px] font-medium text-gray-500 bg-gray-100">
+            <span
+              className="inline-block px-2 py-px rounded-full text-[10px] font-medium"
+              style={{ color: colors.base, backgroundColor: colors.light }}
+            >
               {typeStyle.label}
             </span>
             {isCustom && (
-              <span className="inline-block px-2 py-px rounded-full text-[10px] font-medium text-purple-500 bg-purple-50">
+              <span className="inline-block px-2 py-px rounded-full text-[10px] font-medium text-purple-600 bg-purple-50">
                 Custom
               </span>
             )}
             {activity.tags.map((tag) => (
               <span
                 key={tag}
-                className="inline-block px-2 py-px rounded-full text-[10px] font-medium text-gray-400 bg-gray-50"
+                className={`inline-block px-2 py-px rounded-full text-[10px] font-medium ${TAG_COLORS[tag]}`}
               >
                 {TAG_LABELS[tag]}
               </span>
