@@ -1,25 +1,35 @@
-export function AriseMark({ size = 36 }: { size?: number }) {
+export function AriseMark({ size = 28, color = 'white' }: { size?: number; color?: string }) {
+  const rays = 16
+  const cx = 50
+  const cy = 50
+  const innerR = 18
+  const outerR = 44
+  const strokeW = 5.5
+  const lines: React.ReactNode[] = []
+  for (let i = 0; i < rays; i++) {
+    const angle = (i * 360) / rays - 90
+    const rad = (angle * Math.PI) / 180
+    const x1 = cx + innerR * Math.cos(rad)
+    const y1 = cy + innerR * Math.sin(rad)
+    const x2 = cx + outerR * Math.cos(rad)
+    const y2 = cy + outerR * Math.sin(rad)
+    lines.push(
+      <line
+        key={i}
+        x1={x1}
+        y1={y1}
+        x2={x2}
+        y2={y2}
+        stroke={color}
+        strokeWidth={strokeW}
+        strokeLinecap="round"
+      />
+    )
+  }
+
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
-      {/* Horizon line */}
-      <line x1="5" y1="28" x2="35" y2="28"
-        stroke="white" strokeWidth="1.8" strokeLinecap="round" />
-      {/* Rising arc */}
-      <path d="M12 28 A8 8 0 0 1 28 28"
-        fill="none" stroke="white" strokeWidth="2" />
-      {/* Center glow point */}
-      <circle cx="20" cy="28" r="1.8" fill="#F5D68A" />
-      {/* Rays */}
-      <line x1="20" y1="17" x2="20" y2="11"
-        stroke="#F5D68A" strokeWidth="1.4" strokeLinecap="round" />
-      <line x1="26" y1="19" x2="30" y2="15"
-        stroke="#F5D68A" strokeWidth="1.2" strokeLinecap="round" />
-      <line x1="14" y1="19" x2="10" y2="15"
-        stroke="#F5D68A" strokeWidth="1.2" strokeLinecap="round" />
-      <line x1="28" y1="23" x2="33" y2="21"
-        stroke="#F5D68A" strokeWidth="1" strokeLinecap="round" />
-      <line x1="12" y1="23" x2="7" y2="21"
-        stroke="#F5D68A" strokeWidth="1" strokeLinecap="round" />
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none">
+      {lines}
     </svg>
   )
 }
