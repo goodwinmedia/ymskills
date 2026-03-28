@@ -61,12 +61,12 @@ export const activities: Activity[] = [
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // DEACONS — MENTAL (d-mn-1 through d-mn-5)
+  // DEACONS — INTELLECTUAL (d-in-1 through d-in-5)
   // ═══════════════════════════════════════════════════════════════
   {
-    id: 'd-mn-1',
+    id: 'd-in-1',
     quorum: 'deacons',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'group',
     title: 'Learn to Learn: Study Skills Workshop',
     principle: 'How you study matters more than how long you study.',
@@ -75,9 +75,9 @@ export const activities: Activity[] = [
     tags: ['mission', 'career'],
   },
   {
-    id: 'd-mn-2',
+    id: 'd-in-2',
     quorum: 'deacons',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'personal',
     title: 'Read a Book This Month',
     principle: 'Reading builds vocabulary, empathy, and knowledge that compounds over a lifetime.',
@@ -86,9 +86,9 @@ export const activities: Activity[] = [
     tags: ['career'],
   },
   {
-    id: 'd-mn-3',
+    id: 'd-in-3',
     quorum: 'deacons',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'group',
     title: 'Current Events Discussion',
     principle: 'Understanding the world around you is part of being an informed disciple.',
@@ -97,9 +97,9 @@ export const activities: Activity[] = [
     tags: ['career'],
   },
   {
-    id: 'd-mn-4',
+    id: 'd-in-4',
     quorum: 'deacons',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'both',
     title: 'Goal Setting 101',
     principle: 'Writing down goals makes you far more likely to achieve them.',
@@ -108,9 +108,9 @@ export const activities: Activity[] = [
     tags: ['mission', 'career'],
   },
   {
-    id: 'd-mn-5',
+    id: 'd-in-5',
     quorum: 'deacons',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'group',
     title: 'Digital Citizenship & Online Safety',
     principle: 'Being wise online is a modern form of choosing the right.',
@@ -179,12 +179,12 @@ export const activities: Activity[] = [
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // DEACONS — EMOTIONAL (d-em-1 through d-em-5)
+  // DEACONS — SOCIAL (d-so-1 through d-so-5)
   // ═══════════════════════════════════════════════════════════════
   {
-    id: 'd-em-1',
+    id: 'd-so-1',
     quorum: 'deacons',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'group',
     title: 'Name It to Tame It: Emotions Workshop',
     principle: 'You can\'t manage emotions you can\'t identify.',
@@ -193,9 +193,9 @@ export const activities: Activity[] = [
     tags: [],
   },
   {
-    id: 'd-em-2',
+    id: 'd-so-2',
     quorum: 'deacons',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'personal',
     title: 'Gratitude Journal: 14 Days',
     principle: 'Gratitude rewires your brain to see the good in your life.',
@@ -204,9 +204,9 @@ export const activities: Activity[] = [
     tags: [],
   },
   {
-    id: 'd-em-3',
+    id: 'd-so-3',
     quorum: 'deacons',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'group',
     title: 'Friendship & Inclusion Challenge',
     principle: 'Being a friend — especially to the lonely — is Christlike service.',
@@ -215,9 +215,9 @@ export const activities: Activity[] = [
     tags: ['mission'],
   },
   {
-    id: 'd-em-4',
+    id: 'd-so-4',
     quorum: 'deacons',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'both',
     title: 'Dealing with Anger & Frustration',
     principle: 'Learning to pause before reacting is one of the most important skills in life.',
@@ -226,9 +226,9 @@ export const activities: Activity[] = [
     tags: ['father'],
   },
   {
-    id: 'd-em-5',
+    id: 'd-so-5',
     quorum: 'deacons',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'group',
     title: 'Service Project: Serve Someone Who\'s Struggling',
     principle: 'Serving others is the fastest way to get out of your own head.',
@@ -297,12 +297,12 @@ export const activities: Activity[] = [
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // TEACHERS — MENTAL (t-mn-1 through t-mn-5)
+  // TEACHERS — INTELLECTUAL (t-in-1 through t-in-5)
   // ═══════════════════════════════════════════════════════════════
   {
-    id: 't-mn-1',
+    id: 't-in-1',
     quorum: 'teachers',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'group',
     title: 'Critical Thinking: Evaluating Information',
     principle: 'In a world of misinformation, thinking clearly is a superpower.',
@@ -311,9 +311,9 @@ export const activities: Activity[] = [
     tags: ['career'],
   },
   {
-    id: 't-mn-2',
+    id: 't-in-2',
     quorum: 'teachers',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'personal',
     title: 'Learn a New Skill in 30 Days',
     principle: 'The ability to teach yourself something new is the most valuable skill of the 21st century.',
@@ -322,9 +322,9 @@ export const activities: Activity[] = [
     tags: ['career'],
   },
   {
-    id: 't-mn-3',
+    id: 't-in-3',
     quorum: 'teachers',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'group',
     title: 'Financial Literacy: Money Basics',
     principle: 'Understanding money now prevents financial stress later.',
@@ -333,9 +333,9 @@ export const activities: Activity[] = [
     tags: ['career', 'father'],
   },
   {
-    id: 't-mn-4',
+    id: 't-in-4',
     quorum: 'teachers',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'both',
     title: 'Public Speaking Practice',
     principle: 'Clear communication opens doors in every area of life.',
@@ -344,9 +344,9 @@ export const activities: Activity[] = [
     tags: ['mission', 'career'],
   },
   {
-    id: 't-mn-5',
+    id: 't-in-5',
     quorum: 'teachers',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'group',
     title: 'Time Management & Priorities',
     principle: 'How you spend your time reflects what you truly value.',
@@ -415,12 +415,12 @@ export const activities: Activity[] = [
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // TEACHERS — EMOTIONAL (t-em-1 through t-em-5)
+  // TEACHERS — SOCIAL (t-so-1 through t-so-5)
   // ═══════════════════════════════════════════════════════════════
   {
-    id: 't-em-1',
+    id: 't-so-1',
     quorum: 'teachers',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'group',
     title: 'Navigating Peer Pressure',
     principle: 'Standing firm in your values requires practice, not just willpower.',
@@ -429,9 +429,9 @@ export const activities: Activity[] = [
     tags: ['mission'],
   },
   {
-    id: 't-em-2',
+    id: 't-so-2',
     quorum: 'teachers',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'personal',
     title: 'Mindfulness & Stress Management',
     principle: 'Learning to calm your mind is a skill that will serve you forever.',
@@ -440,9 +440,9 @@ export const activities: Activity[] = [
     tags: [],
   },
   {
-    id: 't-em-3',
+    id: 't-so-3',
     quorum: 'teachers',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'group',
     title: 'Conflict Resolution Skills',
     principle: 'The ability to resolve conflicts peacefully is a mark of true maturity.',
@@ -451,9 +451,9 @@ export const activities: Activity[] = [
     tags: ['father'],
   },
   {
-    id: 't-em-4',
+    id: 't-so-4',
     quorum: 'teachers',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'both',
     title: 'Understanding & Supporting Mental Health',
     principle: 'Mental health struggles are real, common, and nothing to be ashamed of.',
@@ -462,9 +462,9 @@ export const activities: Activity[] = [
     tags: [],
   },
   {
-    id: 't-em-5',
+    id: 't-so-5',
     quorum: 'teachers',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'group',
     title: 'Building Authentic Friendships',
     principle: 'Deep friendships require vulnerability, loyalty, and intentional effort.',
@@ -533,12 +533,12 @@ export const activities: Activity[] = [
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // PRIESTS — MENTAL (p-mn-1 through p-mn-5)
+  // PRIESTS — INTELLECTUAL (p-in-1 through p-in-5)
   // ═══════════════════════════════════════════════════════════════
   {
-    id: 'p-mn-1',
+    id: 'p-in-1',
     quorum: 'priests',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'group',
     title: 'College & Career Exploration',
     principle: 'Understanding your options empowers you to make inspired decisions about your future.',
@@ -547,9 +547,9 @@ export const activities: Activity[] = [
     tags: ['career', 'mission'],
   },
   {
-    id: 'p-mn-2',
+    id: 'p-in-2',
     quorum: 'priests',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'personal',
     title: 'Deep Dive: Study a Topic for 30 Days',
     principle: 'Deep knowledge in any area builds the discipline and thinking skills that transfer everywhere.',
@@ -558,9 +558,9 @@ export const activities: Activity[] = [
     tags: ['career'],
   },
   {
-    id: 'p-mn-3',
+    id: 'p-in-3',
     quorum: 'priests',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'group',
     title: 'Defending Your Faith: Apologetics Basics',
     principle: 'A prepared mind can respond to challenges with confidence and kindness.',
@@ -569,9 +569,9 @@ export const activities: Activity[] = [
     tags: ['mission'],
   },
   {
-    id: 'p-mn-4',
+    id: 'p-in-4',
     quorum: 'priests',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'both',
     title: 'Personal Finance: Budgeting & Saving',
     principle: 'Financial independence starts with habits you build as a teenager.',
@@ -580,9 +580,9 @@ export const activities: Activity[] = [
     tags: ['career', 'father'],
   },
   {
-    id: 'p-mn-5',
+    id: 'p-in-5',
     quorum: 'priests',
-    dimension: 'mental',
+    dimension: 'intellectual',
     type: 'group',
     title: 'AI & Technology Ethics',
     principle: 'Understanding technology\'s impact helps you use it wisely and prepare for the future.',
@@ -651,12 +651,12 @@ export const activities: Activity[] = [
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // PRIESTS — EMOTIONAL (p-em-1 through p-em-5)
+  // PRIESTS — SOCIAL (p-so-1 through p-so-5)
   // ═══════════════════════════════════════════════════════════════
   {
-    id: 'p-em-1',
+    id: 'p-so-1',
     quorum: 'priests',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'group',
     title: 'Preparing for Relationships: Healthy Dating',
     principle: 'Understanding healthy relationships now prevents heartbreak and poor decisions later.',
@@ -665,9 +665,9 @@ export const activities: Activity[] = [
     tags: ['father'],
   },
   {
-    id: 'p-em-2',
+    id: 'p-so-2',
     quorum: 'priests',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'personal',
     title: 'Emotional Intelligence Self-Assessment',
     principle: 'Knowing your emotional strengths and weaknesses is the foundation of personal growth.',
@@ -676,9 +676,9 @@ export const activities: Activity[] = [
     tags: ['career', 'father'],
   },
   {
-    id: 'p-em-3',
+    id: 'p-so-3',
     quorum: 'priests',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'group',
     title: 'Hard Conversations: Communication Skills',
     principle: 'The ability to have difficult conversations with honesty and compassion defines great men.',
@@ -687,9 +687,9 @@ export const activities: Activity[] = [
     tags: ['mission', 'father'],
   },
   {
-    id: 'p-em-4',
+    id: 'p-so-4',
     quorum: 'priests',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'both',
     title: 'Identity & Self-Worth: Knowing Who You Are',
     principle: 'Your identity as a son of God is the anchor when life gets confusing.',
@@ -698,9 +698,9 @@ export const activities: Activity[] = [
     tags: ['mission'],
   },
   {
-    id: 'p-em-5',
+    id: 'p-so-5',
     quorum: 'priests',
-    dimension: 'emotional',
+    dimension: 'social',
     type: 'group',
     title: 'Mentoring the Younger Quorums',
     principle: 'Teaching others what you\'ve learned is the highest form of emotional maturity.',

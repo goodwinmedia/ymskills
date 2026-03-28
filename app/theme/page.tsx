@@ -10,30 +10,30 @@ const THEME_LINES: ThemeLine[] = [
     text: 'I am a beloved son of God, and He has a work for me to do.',
     dimensions: [
       { label: 'Spiritual', color: DIMENSION_COLORS.spiritual.base },
-      { label: 'Emotional', color: DIMENSION_COLORS.emotional.base },
+      { label: 'Social', color: DIMENSION_COLORS.social.base },
     ],
   },
   {
     text: 'With all my heart, might, mind, and strength,',
     dimensions: [
       { label: 'Spiritual', color: DIMENSION_COLORS.spiritual.base },
-      { label: 'Mental', color: DIMENSION_COLORS.mental.base },
+      { label: 'Intellectual', color: DIMENSION_COLORS.intellectual.base },
       { label: 'Physical', color: DIMENSION_COLORS.physical.base },
-      { label: 'Emotional', color: DIMENSION_COLORS.emotional.base },
+      { label: 'Social', color: DIMENSION_COLORS.social.base },
     ],
   },
   {
     text: 'I will love God, keep my covenants, and use His priesthood to serve others, beginning in my own home.',
     dimensions: [
       { label: 'Spiritual', color: DIMENSION_COLORS.spiritual.base },
-      { label: 'Fatherhood', color: DIMENSION_COLORS.emotional.base },
+      { label: 'Social', color: DIMENSION_COLORS.social.base },
     ],
   },
   {
     text: 'As I strive to serve, exercise faith, repent, and improve each day,',
     dimensions: [
       { label: 'Spiritual', color: DIMENSION_COLORS.spiritual.base },
-      { label: 'Mental', color: DIMENSION_COLORS.mental.base },
+      { label: 'Intellectual', color: DIMENSION_COLORS.intellectual.base },
     ],
   },
   {
@@ -46,14 +46,14 @@ const THEME_LINES: ThemeLine[] = [
     text: 'I will prepare to become a diligent missionary,',
     dimensions: [
       { label: 'Mission prep', color: DIMENSION_COLORS.spiritual.base },
-      { label: 'All dimensions', color: DIMENSION_COLORS.mental.base },
+      { label: 'All dimensions', color: DIMENSION_COLORS.intellectual.base },
     ],
   },
   {
     text: 'loyal husband, and loving father',
     dimensions: [
-      { label: 'Fatherhood', color: DIMENSION_COLORS.emotional.base },
-      { label: 'Emotional', color: DIMENSION_COLORS.emotional.base },
+      { label: 'Fatherhood', color: DIMENSION_COLORS.social.base },
+      { label: 'Social', color: DIMENSION_COLORS.social.base },
     ],
   },
   {
@@ -66,7 +66,7 @@ const THEME_LINES: ThemeLine[] = [
     text: 'I will help prepare the world for the Savior\'s return by inviting all to come unto Christ and receive the blessings of His Atonement.',
     dimensions: [
       { label: 'Spiritual', color: DIMENSION_COLORS.spiritual.base },
-      { label: 'Mission prep', color: DIMENSION_COLORS.mental.base },
+      { label: 'Social', color: DIMENSION_COLORS.social.base },
     ],
   },
 ]
@@ -105,8 +105,9 @@ export default function ThemePage() {
       <div className="mt-12 p-4 bg-arise-navy-lt rounded-lg">
         <h2 className="text-sm font-medium text-arise-navy mb-2">About ARISE</h2>
         <p className="text-sm text-gray-600 leading-relaxed">
-          ARISE is a development framework for Young Men built around four dimensions:
-          Spiritual, Mental, Physical, and Emotional. Each dimension contains activities
+          ARISE is a development framework for Young Men built around four areas of growth
+          based on Luke 2:52: Spiritual (Favor with God), Social (Favor with Man),
+          Physical (Stature), and Intellectual (Wisdom). Each area contains activities
           designed to help young men grow into prepared missionaries, loyal husbands,
           loving fathers, and contributing members of their communities.
         </p>

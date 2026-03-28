@@ -1,5 +1,5 @@
 export type Quorum = 'deacons' | 'teachers' | 'priests'
-export type Dimension = 'spiritual' | 'mental' | 'physical' | 'emotional'
+export type Dimension = 'spiritual' | 'social' | 'physical' | 'intellectual'
 export type ActivityType = 'group' | 'personal' | 'both'
 export type Tag = 'mission' | 'father' | 'career'
 
@@ -22,16 +22,23 @@ export const QUORUM_LABELS: Record<Quorum, { label: string; ages: string }> = {
 
 export const DIMENSION_LABELS: Record<Dimension, string> = {
   spiritual: 'Spiritual',
-  mental: 'Mental',
+  social: 'Social',
   physical: 'Physical',
-  emotional: 'Emotional',
+  intellectual: 'Intellectual',
+}
+
+export const DIMENSION_SUBTITLES: Record<Dimension, string> = {
+  spiritual: 'Favor with God',
+  social: 'Favor with Man',
+  physical: 'Stature',
+  intellectual: 'Wisdom',
 }
 
 export const DIMENSION_COLORS: Record<Dimension, { base: string; light: string }> = {
   spiritual: { base: '#1B3968', light: '#EAF0F8' },
-  mental: { base: '#0F6E56', light: '#E4F4EC' },
+  social: { base: '#5C3A8A', light: '#F0EBF8' },
   physical: { base: '#7A3B1E', light: '#F6EDDF' },
-  emotional: { base: '#5C3A8A', light: '#F0EBF8' },
+  intellectual: { base: '#0F6E56', light: '#E4F4EC' },
 }
 
 export const TAG_LABELS: Record<Tag, string> = {

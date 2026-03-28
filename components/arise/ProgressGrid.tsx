@@ -12,7 +12,7 @@ import { activities } from '@/lib/data/activities'
 import { ProgressStore } from '@/lib/progress'
 
 const quorums: Quorum[] = ['deacons', 'teachers', 'priests']
-const dimensions: Dimension[] = ['spiritual', 'mental', 'physical', 'emotional']
+const dimensions: Dimension[] = ['spiritual', 'social', 'physical', 'intellectual']
 
 interface ProgressGridProps {
   progress: ProgressStore

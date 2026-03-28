@@ -1,8 +1,8 @@
 'use client'
 
-import { Dimension, DIMENSION_LABELS, DIMENSION_COLORS } from '@/lib/data/types'
+import { Dimension, DIMENSION_LABELS, DIMENSION_SUBTITLES, DIMENSION_COLORS } from '@/lib/data/types'
 
-const dimensions: Dimension[] = ['spiritual', 'mental', 'physical', 'emotional']
+const dimensions: Dimension[] = ['spiritual', 'social', 'physical', 'intellectual']
 
 interface DimensionTabsProps {
   active: Dimension
@@ -19,7 +19,7 @@ export function DimensionTabs({ active, onChange }: DimensionTabsProps) {
           <button
             key={d}
             onClick={() => onChange(d)}
-            className="min-h-[44px] px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap"
+            className="min-h-[44px] px-4 py-1.5 rounded-full text-center transition-colors whitespace-nowrap"
             style={
               isActive
                 ? { backgroundColor: colors.base, color: 'white' }
@@ -30,7 +30,13 @@ export function DimensionTabs({ active, onChange }: DimensionTabsProps) {
                   }
             }
           >
-            {DIMENSION_LABELS[d]}
+            <div className="text-sm font-medium">{DIMENSION_LABELS[d]}</div>
+            <div
+              className="text-[9px]"
+              style={{ opacity: isActive ? 0.7 : 0.5 }}
+            >
+              {DIMENSION_SUBTITLES[d]}
+            </div>
           </button>
         )
       })}
