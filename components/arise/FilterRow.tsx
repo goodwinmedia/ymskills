@@ -25,7 +25,7 @@ const TAG_FILTERS: { value: FilterValue; label: string }[] = [
 
 export function FilterRow({ activeType, activeTag, onTypeChange, onTagChange }: FilterRowProps) {
   return (
-    <div className="flex gap-2 px-4 py-2 overflow-x-auto no-scrollbar">
+    <div className="flex gap-2 px-3 py-2 pb-3 overflow-x-auto no-scrollbar">
       {TYPE_FILTERS.map((f) => {
         const isActive =
           f.value === 'all'
@@ -37,15 +37,16 @@ export function FilterRow({ activeType, activeTag, onTypeChange, onTagChange }: 
             onClick={() => onTypeChange(f.value as ActivityType | 'all')}
             className={`min-h-[44px] px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
               isActive
-                ? 'bg-arise-navy text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-white text-arise-navy'
+                : 'text-white/60 hover:text-white/80'
             }`}
+            style={!isActive ? { boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.2)' } : {}}
           >
             {f.label}
           </button>
         )
       })}
-      <div className="w-px bg-gray-200 mx-1 self-stretch" />
+      <div className="w-px bg-white/15 mx-0.5 self-stretch" />
       {TAG_FILTERS.map((f) => {
         const isActive = f.value === activeTag
         return (
@@ -54,9 +55,10 @@ export function FilterRow({ activeType, activeTag, onTypeChange, onTagChange }: 
             onClick={() => onTagChange(f.value as Tag)}
             className={`min-h-[44px] px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
               isActive
-                ? 'bg-arise-navy text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-white text-arise-navy'
+                : 'text-white/60 hover:text-white/80'
             }`}
+            style={!isActive ? { boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.2)' } : {}}
           >
             {f.label}
           </button>

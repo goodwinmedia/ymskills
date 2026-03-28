@@ -89,26 +89,28 @@ export function ActivityBrowser() {
 
   return (
     <div className="pb-20">
-      <QuorumTabs
-        active={quorum}
-        onChange={(q) => {
-          updateParams({ q, type: 'all', tag: 'all' })
-          setOpenId(null)
-        }}
-      />
-      <DimensionTabs
-        active={dimension}
-        onChange={(d) => {
-          updateParams({ d, type: 'all', tag: 'all' })
-          setOpenId(null)
-        }}
-      />
-      <FilterRow
-        activeType={typeFilter}
-        activeTag={tagFilter}
-        onTypeChange={(t) => updateParams({ type: t, tag: 'all' })}
-        onTagChange={(t) => updateParams({ tag: t, type: 'all' })}
-      />
+      <div className="bg-arise-navy">
+        <QuorumTabs
+          active={quorum}
+          onChange={(q) => {
+            updateParams({ q, type: 'all', tag: 'all' })
+            setOpenId(null)
+          }}
+        />
+        <DimensionTabs
+          active={dimension}
+          onChange={(d) => {
+            updateParams({ d, type: 'all', tag: 'all' })
+            setOpenId(null)
+          }}
+        />
+        <FilterRow
+          activeType={typeFilter}
+          activeTag={tagFilter}
+          onTypeChange={(t) => updateParams({ type: t, tag: 'all' })}
+          onTagChange={(t) => updateParams({ tag: t, type: 'all' })}
+        />
+      </div>
       <div className="px-4 py-3 space-y-3">
         {filtered.length === 0 ? (
           <p className="text-sm text-gray-400 text-center py-8">
