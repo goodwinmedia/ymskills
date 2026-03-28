@@ -18,14 +18,14 @@ export function QuorumTabs({ active, onChange }: QuorumTabsProps) {
           <button
             key={q}
             onClick={() => onChange(q)}
-            className={`flex-1 min-h-[44px] px-3 py-2 text-center transition-colors ${
+            className={`flex-1 min-h-[44px] px-2 py-1.5 text-center transition-colors ${
               isActive
                 ? 'border-b-2 border-arise-navy text-arise-navy font-medium'
                 : 'text-gray-500 hover:text-gray-700'
             }`}
           >
-            <div className="text-sm font-medium">{QUORUM_LABELS[q].label}</div>
-            <div className="text-[10px] text-gray-400">{QUORUM_LABELS[q].ages}</div>
+            <span className="text-sm">{QUORUM_LABELS[q].label}</span>
+            <span className="text-[10px] text-gray-400 ml-1">{QUORUM_LABELS[q].ages}</span>
           </button>
         )
       })}
