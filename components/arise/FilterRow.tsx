@@ -27,14 +27,14 @@ export function FilterRow({ activeType, activeTag, onTypeChange, onTagChange }: 
   return (
     <div className="flex gap-2 px-4 py-2 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
       {TYPE_FILTERS.map((f) => {
-        const isActive = f.value === activeType && activeTag === 'all'
+        const isActive =
+          f.value === 'all'
+            ? activeType === 'all' && activeTag === 'all'
+            : f.value === activeType
         return (
           <button
             key={f.value}
-            onClick={() => {
-              onTypeChange(f.value as ActivityType | 'all')
-              onTagChange('all')
-            }}
+            onClick={() => onTypeChange(f.value as ActivityType | 'all')}
             className={`min-h-[36px] px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
               isActive
                 ? 'bg-arise-navy text-white'
@@ -51,10 +51,7 @@ export function FilterRow({ activeType, activeTag, onTypeChange, onTagChange }: 
         return (
           <button
             key={f.value}
-            onClick={() => {
-              onTagChange(f.value as Tag)
-              onTypeChange('all')
-            }}
+            onClick={() => onTagChange(f.value as Tag)}
             className={`min-h-[36px] px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
               isActive
                 ? 'bg-arise-navy text-white'
