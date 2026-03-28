@@ -35,7 +35,7 @@ export function FilterRow({ activeType, activeTag, onTypeChange, onTagChange }: 
           <button
             key={f.value}
             onClick={() => onTypeChange(f.value as ActivityType | 'all')}
-            className={`min-h-[44px] px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
+            className={`h-7 px-3 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
               isActive
                 ? 'bg-arise-navy text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -52,7 +52,7 @@ export function FilterRow({ activeType, activeTag, onTypeChange, onTagChange }: 
           <button
             key={f.value}
             onClick={() => onTagChange(f.value as Tag)}
-            className={`min-h-[44px] px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
+            className={`h-7 px-3 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
               isActive
                 ? 'bg-arise-navy text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
