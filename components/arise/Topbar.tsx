@@ -23,7 +23,7 @@ export function Topbar() {
       <div className="flex items-center justify-between px-3 py-2">
         <Link href="/activities" className="flex items-center gap-2">
           <AriseMark size={28} />
-          <span className="text-base font-semibold tracking-wide">ARISE</span>
+          <span className="font-semibold tracking-wide" style={{ fontSize: '1.75rem' }}>ARISE</span>
         </Link>
         <nav className="flex gap-0.5">
           {NAV_ITEMS.map((item) => {
